@@ -1,2 +1,2 @@
-# app-mata-mosquito
+# App - Mata Mosquito
 Um app feito com js.
