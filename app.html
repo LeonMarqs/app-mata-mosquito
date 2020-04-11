@@ -15,9 +15,26 @@
 
   <body onresize="ajustSizeGame()">
 
-      <script>
-        randomPosition();
-      </script>
+    <div class="painel">
+
+      <div class="lifes">
+        <img id="l1" src="img/coracao_cheio.png" alt="empty life">
+        <img id="l2" src="img/coracao_cheio.png" alt="full life">
+        <img id="l3" src="img/coracao_cheio.png" alt="full life">
+      </div>
+
+      <div class="timer">
+        Tempo restante: ?
+      </div>
+
+
+    </div>
+
+    <script>
+      setInterval(function() {
+      randomPosition();
+      }, 1000)
+    </script>
       
   </body>
 
