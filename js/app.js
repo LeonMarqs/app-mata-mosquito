@@ -1,7 +1,7 @@
 var heigh;
 var width;
 var lifes = 1;
-var time = 10;
+var time = 30;
 
 var gameSpeed;
 
