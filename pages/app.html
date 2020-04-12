@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Mata Mosquito</title>
+
+      
+      <!-- CSS -->
+      <link rel="stylesheet" href="../css/style.css">
+      <!-- JS -->
+      <script src="../js/app.js"></script>
+  </head>
+
+  <body onresize="ajustSizeGame()">
+
+    <div class="painel">
+
+      <div class="lifes">
+        <img id="l1" src="../img/coracao_cheio.png" alt="empty life">
+        <img id="l2" src="../img/coracao_cheio.png" alt="full life">
+        <img id="l3" src="../img/coracao_cheio.png" alt="full life">
+      </div>
+
+      <div class="timer">
+        Tempo restante: <span id="timer"></span>
+      </div>
+
+
+    </div>
+
+    <script>
+      document.getElementById('timer').innerHTML = time;
+
+      var createFly = setInterval(function() {
+        randomPosition();
+      }, gameSpeed);
+    </script>
+      
+  </body>
+
+</html>

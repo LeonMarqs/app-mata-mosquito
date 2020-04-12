@@ -1,6 +1,27 @@
 var heigh;
 var width;
 var lifes = 1;
+var time = 10;
+
+var gameSpeed;
+
+// Recuperar o valor da dificuldade pelo Query params
+var level = window.location.search;
+level = level.replace('?', '');
+
+if(level === 'normal') {
+
+  gameSpeed = 1300;
+  
+} else if(level === 'hard') {
+
+  gameSpeed = 1000;
+
+} else if (level === 'chucknorris') {
+
+  gameSpeed = 750;
+
+};
 
 function ajustSizeGame() {
   height = window.innerHeight;
@@ -11,6 +32,21 @@ function ajustSizeGame() {
 
 ajustSizeGame();
 
+// Criação de um cronômetro
+var timer = setInterval(function() {
+  
+  time--;
+  
+  if (time < 0) { // Vitória
+    clearInterval(timer);
+    clearInterval(createFly);
+    window.location.href = '../pages/win.html';
+    
+  } else {
+    document.getElementById('timer').innerHTML = time;  
+  };
+
+}, 1000);
 
 function randomPosition() {
   // Remover mosquito anterior (caso exista)
@@ -18,11 +54,11 @@ function randomPosition() {
     document.getElementById('fly').remove();
 
     if (lifes > 3) {
-      window.location.href = 'gameover.html';
+      window.location.href = '../pages/gameover.html';
 
     } else {
       
-      document.getElementById('l' + lifes).src = 'img/coracao_vazio.png';
+      document.getElementById('l' + lifes).src = '../img/coracao_vazio.png';
       lifes++;
     }
   }
@@ -39,7 +75,7 @@ function randomPosition() {
 
   // Criação de um novo elemento HTML através do DOM
   const fly = document.createElement('img');
-  fly.src = 'img/mosquito.png';
+  fly.src = '../img/mosquito.png';
   fly.className = randomSize() + ' ' + randomSide();
   fly.style.position = 'absolute';
   fly.style.left = xposition + 'px';
@@ -68,7 +104,7 @@ function randomSize() {
 };
 
 function randomSide() {
-  let classe = Math.floor(Math.random() * 2); //return: 0 || 1 || 2 
+  let classe = Math.floor(Math.random() * 2); //return: 0 || 1  
 
   switch(classe) {
     case 0:
